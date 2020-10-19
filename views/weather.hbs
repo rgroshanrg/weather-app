@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="header">
+        <h1 style="align-content: center; color: cornflowerblue">Weather App</h1>
+    </section>
+    <section id="body">
+        
+        <h2>Location : {{name}}, {{region}}, {{country}}    [Latitide: {{lat}}, Logitude: {{lon}}]</h2>
+        <h3>Temperature is : {{temperature}} Celsius</h3>
+        <h3>Precipitation is : {{precipitation}} Millimeters</h3>
+        <h3>Pressure is : {{pressure}} Millibar</h3>
+        <h3>Humidity is : {{humidity}}% </h3>
+        <h3>Wind Speed is : {{wind_speed}} Kilometers/Hour</h3>
+        <h3>Wind Direction is : {{wind_dir}}</h3>
+        <h2>Weather Description : {{weather_descriptions}}</h2>
+        <img src="{{weather_icons}}" alt="">
+    </section>
+</body>
+</html>
