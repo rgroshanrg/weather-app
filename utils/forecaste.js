@@ -1,14 +1,18 @@
 const requestPostman = require('postman-request');
 
 const foreCast = (latitude, longitude, callback) => {
+    
     const apiUrl = 'http://api.weatherstack.com/current?access_key=7431710de19e5616a3eb31f9b69b35a4&query=' + latitude + ',' + longitude;
+    
     requestPostman({url : apiUrl, json : true}, (error, res) => {
+        
         const current = res.body.current;
         const location = res.body.location;
+        
         if(error) {
-            callback('Internet Connection not Available', undefined);
+            callback('Please connect to Internet', undefined);
         } else if(current.length === 0) {
-            callback('Location Invalid. Please provide Valid Latitude and Longitude.', undefined);
+            callback('Latitude/Logitude Invalid', undefined);
         } else {
             callback(undefined, {
                 temperature: current.temperature, 
