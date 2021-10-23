@@ -34,3 +34,6 @@ const foreCast = (latitude, longitude, callback) => {
 }
 
 module.exports = foreCast;
+
+
+#EOF
