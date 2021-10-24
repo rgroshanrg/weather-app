@@ -5,11 +5,8 @@ const foreCast = require('./utils/forecaste');
 const server = require('express')();
 const path = require('path');
 const bodyParser = require('body-parser');
-
 server.set('view engine', 'hbs');
 server.use(bodyParser.urlencoded({ extended: true }));
-
-
 server.get('', (req, res) => {
     res.render('index');
 })
@@ -17,13 +14,19 @@ server.post('/', (req, res) => {
     if(!req.body.search_address)
         return res.redirect('/');
     geoCode(req.body.search_address, (error, data) => {
-        if(error) {
+        if(error) 
+        {
             res.send(error);
-        } else {
+        } 
+        else 
+        {
             foreCast(data.latitude, data.longitude, (error, data) => {
-                if(error) {
+                if(error) 
+                {
                     res.send(error);
-                } else {
+                } 
+                else 
+                {
                     res.render('weather', {
                         temperature: data.temperature, 
                         precipitation: data.precipitation,
@@ -50,7 +53,6 @@ server.get('*', (req, res) => {
 server.listen(process.env.PORT || 5000, () => {
     console.log("Server is running on port 5000"); #port 5000 open
 });
-
 #~
 #EOF
 #~
